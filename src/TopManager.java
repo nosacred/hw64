@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class TopManager implements Employee, Comparator<Employee> {
+public class TopManager extends StaffComparator implements Employee {
 
     private double baseSalary = 120000;
     private Company a;
@@ -16,16 +16,5 @@ public class TopManager implements Employee, Comparator<Employee> {
         } else {
             return baseSalary;
         }
-    }
-
-    @Override
-    public int compare(Employee o1, Employee o2) {
-        if (o1.getMonthSalary() > o2.getMonthSalary()){
-            return -1;
-        }
-        if (o1.getMonthSalary() < o2.getMonthSalary()){
-            return 1;
-        }
-        return 0;
     }
 }

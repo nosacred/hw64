@@ -15,11 +15,14 @@ public class Company {
     }
 
     public void fire() {
-        employers.remove(0);
+        Collections.shuffle(employers);
+        if (!employers.isEmpty()) {
+            employers.remove(0);
+        }
     }
 
-    public double getIncome() {
-        double rewards = 0;
+    public int getIncome() {
+        int rewards = 0;
         for (int i = 0; i <= employers.size() - 1; i++) {
             if (employers.get(i) instanceof Manager)
                 rewards += ((Manager) employers.get(i)).getCompanyProfit();
