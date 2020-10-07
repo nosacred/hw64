@@ -4,8 +4,8 @@ public class Manager extends StaffComparator implements Employee {
     private int baseSalary = 42000;
 
     @Override
-    public double getMonthSalary() {
-        return baseSalary + 0.05*getCompanyProfit();
+    public int getMonthSalary() {
+        return (int)(baseSalary + 0.05*getCompanyProfit());
     }
 
     public int getCompanyProfit() {

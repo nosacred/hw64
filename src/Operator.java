@@ -3,7 +3,7 @@ import java.util.Comparator;
 public class Operator extends StaffComparator implements Employee {
 
     @Override
-    public double getMonthSalary() {
+    public int getMonthSalary() {
         return 50000;
     }
 }

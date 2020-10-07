@@ -2,7 +2,7 @@ import java.util.Comparator;
 
 public class TopManager extends StaffComparator implements Employee {
 
-    private double baseSalary = 120000;
+    private int baseSalary = 120000;
     private Company a;
 
     public TopManager(Company a) {
@@ -10,9 +10,9 @@ public class TopManager extends StaffComparator implements Employee {
     }
 
     @Override
-    public double getMonthSalary() {
+    public int getMonthSalary() {
         if(a.getIncome() >= 10000000){
-            return baseSalary+baseSalary*1.5;
+            return (int)(baseSalary+baseSalary*1.5);
         } else {
             return baseSalary;
         }
