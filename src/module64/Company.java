@@ -1,3 +1,5 @@
+package module64;
+
 import java.util.*;
 
 public class Company {

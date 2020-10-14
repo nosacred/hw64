@@ -1,31 +1,28 @@
+import com.skillbox.airport.Airport;
+import com.skillbox.airport.Flight;
+import com.skillbox.airport.Terminal;
+
+import java.time.LocalDate;
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
+        Airport dme = Airport.getInstance();
 
-        Company tetis = new Company();
+        Calendar nowDate = new GregorianCalendar();
+        Date now = nowDate.getTime();
+        nowDate.add(Calendar.HOUR,2);
+        Date nextDate = nowDate.getTime();
+        System.out.println(now);
+        System.out.println(nextDate);
 
-        for (int i = 0; i < 180; i++){
-            tetis.hire(new Operator());
-        }
-        for (int i = 0; i < 80; i++){
-            tetis.hire(new Manager());
-        }
-        for (int i = 0; i < 10; i++){
-            tetis.hire(new TopManager(tetis));
-        }
-
-        System.out.println(tetis.getStaffCount());
-        System.out.println(tetis.getIncome());
-        tetis.getTopSalaryStaff(10);
-        tetis.getLowestSalaryStaff(-30);
-
-        for (int i =1; i <=135;i++){
-            tetis.fire();
-        }
-
-        System.out.println(tetis.getStaffCount());
-        System.out.println(tetis.getIncome());
-        tetis.getTopSalaryStaff(10);
-        tetis.getLowestSalaryStaff(-30);
+        dme.getTerminals().forEach(terminal ->
+               terminal.getFlights().stream().
+                       sorted(Comparator.comparing(Flight::getDate)).
+                       filter(flight -> flight.getType()== Flight.Type.DEPARTURE).
+                       filter(flight -> flight.getDate().before(nextDate)).
+                       filter(flight -> flight.getDate().after(now)).
+                       forEach(System.out::println));
+    }
 
     }
-}

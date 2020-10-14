@@ -1,4 +1,4 @@
-import java.util.Comparator;
+package module64;
 
 public class Operator extends StaffComparator implements Employee {
 

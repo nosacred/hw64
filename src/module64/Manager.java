@@ -1,4 +1,4 @@
-import java.util.Comparator;
+package module64;
 
 public class Manager extends StaffComparator implements Employee {
     private int baseSalary = 42000;
